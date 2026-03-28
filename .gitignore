@@ -1,2 +1,5 @@
 # Ignorar todos os arquivos de extensão .CSV
 *.csv
+
+# Ignorar o diretório de configuração do PyCharm
+.idea/

@@ -1,4 +1,8 @@
-def hardware() -> dict[str, str]:
+from colorama import Fore
+from deteccao.processador import processador
+
+
+def hardware(plataforma: str) -> dict:
     """
     Função para detectar as informações de hardware do dispositivo
 
@@ -12,4 +16,10 @@ def hardware() -> dict[str, str]:
 
     Returns: Dicionário de informações do hardware
     """
+
+    # Obtém as informações do processador
+    info_processador = processador(plataforma)
+
+    # Informações
+
 

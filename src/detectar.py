@@ -2,6 +2,7 @@
 import time
 
 from colorama import Fore, Style, init
+from src.monitor.software.processos import capturar_processos
 from src.monitor.software.info import informacoes
 
 # Inicializa o colorama
@@ -42,3 +43,5 @@ def sistema():
     time.sleep(4)
 
     # Informações de hardware
+
+    capturar_processos()

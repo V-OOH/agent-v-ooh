@@ -195,3 +195,5 @@ def captura(componente, frequencia, plataforma):
     else:
         print("Função não encontrada")
         sys.exit()
+
+        

@@ -24,7 +24,7 @@ def capturar_processos(intervalo: int) -> list[dict[str, str]] | None:
         usuario = p['username'].split('\\')[0] if p['username'] else "Sistema"
 
         # Dados do processo
-        info = {
+        dados = {
             "pid": p['pid'],
             "usuario": usuario,
             "nome": p['name'],
@@ -34,7 +34,7 @@ def capturar_processos(intervalo: int) -> list[dict[str, str]] | None:
         }
 
         # Adiciona os processos na lista de processos
-        lista_processos.append(info)
+        lista_processos.append(dados)
 
     return lista_processos if lista_processos else None
    

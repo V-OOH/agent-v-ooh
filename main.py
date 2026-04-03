@@ -3,6 +3,7 @@ import platform, sys, psutil
 
 from colorama import Fore, Style, init
 from src.detectar import identificar
+from src.capturar import captura
 
 # Inicializa o colorama
 init()
@@ -83,7 +84,10 @@ elif len(argumentos) == 3:
     else:
         try:
             # Identificar informações da máquina
-            identificar(platform.system())
+            identificar(plataforma=plataforma)
+
+            # Inicia a captura de informações
+            captura(componente=recurso, frequencia=frequencia, plataforma=plataforma)
 
         except KeyboardInterrupt:
             print(Fore.YELLOW + "\n\nInterrompendo..." + Style.RESET_ALL)

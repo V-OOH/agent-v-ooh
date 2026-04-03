@@ -4,19 +4,15 @@ import psutil
 import time
 from colorama import Fore, Style
 
-# Importa o arquivo de script de salvar dados
-from src.util.salvar import salvar
-
-
 # Captura os dados com base num componente e numa frequência
-def captura(componente, frequencia, plataforma):
+def captura(componente: str, frequencia: int, plataforma: str):
     """
     Faz a captura de dados de um componente de hardware da máquina
 
     Args:
-        componente (str): O nome do componente.
-        frequencia (int): O valor da frequência.
-        plataforma (str): Windows ou Linux
+        componente: O nome do componente.
+        frequencia: O valor da frequência.
+        plataforma: Windows ou Linux
     """
 
     # Valida o tipo de componente a ser capturado os dados

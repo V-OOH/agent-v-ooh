@@ -74,4 +74,5 @@ def identificar(plataforma):
     disco = info_disco(plataforma)
 
     # Exibe as informações do disco
+    print(Fore.GREEN + "Capacidade do disco: " + Style.RESET_ALL + f"{round((float(disco[0]['total']) / 1024 ** 3), 2)} GiB")
 

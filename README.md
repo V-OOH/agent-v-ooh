@@ -63,18 +63,9 @@ Com todas as dependências instaladas e/ou ambiente virtual configurado no dispo
 você executar o agente com o seguinte comando:
 
 ```
-python3 main.py [componente] [frequência]
+python3 main.py [frequência]
 ```
 
-Onde `componente` pode ser uma das seguintes opções:
-
-- `-c` - Captura informações CPU
-- `-r` - Captura informações da RAM
-- `-d` - Captura informações do Disco
-- `-n` - Captura informações de rede
-- `-p` - Captura informações de processos
-- `-t` - Captura informações de temperatura
-- `--all` - Captura todas as informações dos componentes acima
 
 `frequência` é o tempo em segundos entre capturas
 

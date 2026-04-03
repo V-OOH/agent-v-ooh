@@ -39,7 +39,6 @@ if len(argumentos) == 1:
 
 # Valida se há 1 argumento (recurso passado)
 if len(argumentos) > 1:
-    print("elif argumentos > 1")
 
     # Frequência de captura dos dados
     frequencia = int(argumentos[1])
@@ -51,8 +50,8 @@ if len(argumentos) > 1:
     else:
         try:
             # Identificar informações da máquina
-            identificar(platform.system())
-            captura()
+            identificar("Windows")
+            captura(frequencia=frequencia, plataforma="Windows")
 
         except KeyboardInterrupt:
             print(Fore.YELLOW + "\n\nInterrompendo..." + Style.RESET_ALL)
@@ -71,7 +70,6 @@ else:
     try:
         # Identificar informações da máquina
         identificar(platform.system())
-        captura()
 
     except KeyboardInterrupt:
         print(Fore.YELLOW + "\n\nInterrompendo..." + Style.RESET_ALL)

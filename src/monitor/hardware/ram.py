@@ -1,5 +1,5 @@
 import psutil
-
+      
 def info_ram() -> dict:
     """
     Função para detectar capacidade de RAM do dispositivo
@@ -10,14 +10,11 @@ def info_ram() -> dict:
     # Objeto de RAM do psutil
     ram = psutil.virtual_memory()
 
-    # Razão de conversão
-    razao = 1 / (1024 ** 3)
-
     # RAM total
-    total = ram.total * razao
+    total = ram.total 
 
     # RAM disponível
-    disponivel = ram.available * razao
+    disponivel = ram.available 
 
     # RAM em uso (%)
     percentual = ram.percent

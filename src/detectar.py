@@ -7,6 +7,7 @@ from src.monitor.hardware.disco import info_disco
 from src.monitor.software.info import informacoes
 from src.monitor.hardware.processador import info_processador
 from src.monitor.hardware.ram import info_ram
+from src.capturar import captura
 
 
 from src.monitor.software.processos import capturar_processos
@@ -75,4 +76,9 @@ def identificar(plataforma):
 
     # Exibe as informações do disco
     print(Fore.GREEN + "Capacidade do disco: " + Style.RESET_ALL + f"{round((float(disco[0]['total']) / 1024 ** 3), 2)} GiB")
+    print(Fore.GREEN + "     ➔ Disponível: " + Style.RESET_ALL + f"{round((float(disco[0]['usado']) / 1024 ** 3), 2)} GiB")
+    print(Fore.GREEN + "     ➔ Usado: " + Style.RESET_ALL + f"{round(float(disco[0]['percentual']))}%")
 
+    captura()
+
+# identificar("Linux")

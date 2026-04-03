@@ -64,7 +64,6 @@ if len(argumentos) > 2:
     print(Fore.RED + "Erro: Argumentos execessivos!" + Style.RESET_ALL)
     print(Fore.YELLOW + "\nForma de uso: python3 main.py [frequência]" + Style.RESET_ALL)
     sys.exit(1)
-    print("elif argumentos 2")
 
 
 # Caso não tenha erros

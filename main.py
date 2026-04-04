@@ -45,13 +45,13 @@ if len(argumentos) > 1:
 
     if frequencia <= 0 or frequencia > 18000:
         print(Fore.RED + "Erro: Valor não pode ser negativo ou superior a 18.000 segundos (5h)" + Style.RESET_ALL)
-     
         sys.exit(1)
     else:
         try:
             # Identificar informações da máquina
-            identificar("Windows")
-            captura(frequencia=frequencia, plataforma="Windows")
+            identificar(plataforma=plataforma)
+            print("\n")
+            captura(frequencia=frequencia, plataforma=plataforma)
 
         except KeyboardInterrupt:
             print(Fore.YELLOW + "\n\nInterrompendo..." + Style.RESET_ALL)
@@ -63,14 +63,3 @@ if len(argumentos) > 2:
     print(Fore.RED + "Erro: Argumentos execessivos!" + Style.RESET_ALL)
     print(Fore.YELLOW + "\nForma de uso: python3 main.py [frequência]" + Style.RESET_ALL)
     sys.exit(1)
-
-
-# Caso não tenha erros
-else:
-    try:
-        # Identificar informações da máquina
-        identificar(platform.system())
-
-    except KeyboardInterrupt:
-        print(Fore.YELLOW + "\n\nInterrompendo..." + Style.RESET_ALL)
-        sys.exit(0)

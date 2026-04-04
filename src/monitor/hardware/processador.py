@@ -54,6 +54,9 @@ def info_processador(plataforma: str) -> dict:
     # Frequência mínima
     freq_min = str(freq.min)
 
+    # Frequência atual
+    freq_atual = str(freq.current)
+
     # Dicionário de informaçõe
     informacoes_processador = {
         "processador": cpu_nome,
@@ -61,6 +64,7 @@ def info_processador(plataforma: str) -> dict:
         "nucleos_totais": nucleos_total,
         "frequencia_min": freq_min,
         "frequencia_max": freq_max,
+        "frequencia_atual": freq_atual
     }
 
     # Retorna as informações

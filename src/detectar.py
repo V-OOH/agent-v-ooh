@@ -16,12 +16,13 @@ from src.monitor.software.processos import capturar_processos
 init()
 
 # Função para obter informações do sistema
-def identificar(plataforma):
+def identificar(plataforma: str):
     """
     Faz a detecção inicial de informações do dispositivo
 
     Args:
-        plataforma (str): Windows ou Linux
+        frequencia: Em segundos
+        plataforma: Windows ou Linux
 
     Returns:
         Lista de informações do dispositivo
@@ -67,8 +68,8 @@ def identificar(plataforma):
     ram = info_ram()
 
     # Exibe as informações da RAM
-    print(Fore.GREEN + "Capacidade de RAM: " + Style.RESET_ALL + str(round(ram['total'], 2)) + " GiB")
-    print(Fore.GREEN + "     ➔ Disponível: " + Style.RESET_ALL + str(round(ram['disponivel'], 2)) + " GiB")
+    print(Fore.GREEN + "Capacidade de RAM: " + Style.RESET_ALL + str(round(float(ram['total'] / 1024 ** 3), 2)) + " GiB")
+    print(Fore.GREEN + "     ➔ Disponível: " + Style.RESET_ALL + str(round(float(ram['disponivel'] / 1024 ** 3), 2)) + " GiB")
     print(Fore.GREEN + "     ➔ Usado: " + Style.RESET_ALL + str(round(ram['percentual'], 2)) + "%")
 
     # Informações do Disco
@@ -78,7 +79,3 @@ def identificar(plataforma):
     print(Fore.GREEN + "Capacidade do disco: " + Style.RESET_ALL + f"{round((float(disco[0]['total']) / 1024 ** 3), 2)} GiB")
     print(Fore.GREEN + "     ➔ Disponível: " + Style.RESET_ALL + f"{round((float(disco[0]['usado']) / 1024 ** 3), 2)} GiB")
     print(Fore.GREEN + "     ➔ Usado: " + Style.RESET_ALL + f"{round(float(disco[0]['percentual']))}%")
-
-    captura()
-
-# identificar("Linux")

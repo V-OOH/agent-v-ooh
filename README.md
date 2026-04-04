@@ -1,4 +1,4 @@
-![](https://github.com/V-OOH/agent-vooh/banner.png)
+![Banner](banner.png)
 
 # Agente de Monitoramento VOOH para dispositivos DOOH
 
@@ -72,4 +72,3 @@ python3 main.py [frequência]
 `frequência` é o tempo em segundos entre capturas
 
 As informações coletadas ficam em `/data`, onde há arquivos .CSV separados para cada componente
-

@@ -1,18 +1,8 @@
 import logging
-import time
-
-import boto3
+import boto3, time, os
 from botocore.exceptions import ClientError
-import os
 from colorama import Fore, Style
 from dotenv import load_dotenv
-
-
-
-s3.upload_file('data/dados.csv', 'vooh-bucket', 'raw/dados.csv')
-s3.upload_file('data/processos.csv', 'vooh-bucket', 'raw/processos.csv')
-print("Upload concluído com sucesso!")
-
 
 def upload_file(arquivo, bucket, nome_objeto=None):
     """

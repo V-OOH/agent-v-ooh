@@ -1,5 +1,5 @@
 # Ignorar todos os arquivos de extensão .CSV
-*.csv
+data/*.csv
 
 # Ignorar o diretório de configuração do PyCharm
 .idea/
@@ -7,7 +7,5 @@
 # Ignorar o cache
 __pycache__/
 
+# Ignora o .env
 .env
-
-dados.csv
-processos.csv

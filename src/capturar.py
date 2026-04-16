@@ -1,3 +1,4 @@
+import os
 import time, psutil, sys, colorama
 
 from colorama import Fore, Style
@@ -7,6 +8,7 @@ from src.monitor.hardware.ram import info_ram
 from src.monitor.hardware.rede import info_rede
 from src.util.salvar import salvar
 from src.monitor.software.processos import capturar_processos
+from src.s3.upload import upload_file
 
 # Captura os dados com base num componente e numa frequência
 def captura(frequencia: int, plataforma: str):
@@ -201,6 +203,22 @@ def captura(frequencia: int, plataforma: str):
 
         # Emite a mensagem de salvamento
         print(f"[{time.strftime("%d-%m-%Y %H-%M-%S")}] - Dados registrados")
+
+        # Bucket
+        nome_bucket = os.getenv('AWS_BUCKET_NAME')
+
+        # Nome do objeto
+        objeto = os.getenv('AWS_OBJECT_NAME')
+
+        # Valida se tem objeto
+        if objeto is "":
+            objeto = None
+
+        # Enviar o arquivo de dados para S3
+        upload_file(arquivo=dados_file, bucket=nome_bucket, nome_objeto=objeto)
+
+        # Enviar o arquivo de processos para s3
+        upload_file(arquivo=proc_file, bucket=nome_bucket, nome_objeto=objeto)
 
         # Intervalo de captura e salvamento de dados
         time.sleep(frequencia)

@@ -4,6 +4,9 @@ data/*.csv
 # Ignorar o diretório de configuração do PyCharm
 .idea/
 
+# Ignorar o .vscode
+.vscode/
+
 # Ignorar o cache
 __pycache__/
 

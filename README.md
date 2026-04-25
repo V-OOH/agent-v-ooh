@@ -15,8 +15,13 @@ informações de uso dos recursos como:
 - Disco
 - Rede
 - Processos
+    - Uso de memória
+    - Uso de CPU
+    - PID
 
 Outra biblioteca usada para exibição mais confortável dos dados, é o **colorama**.
+
+Também foi utilizada uma biblioteca da **_Amazon Web Service (AWS)_**, **boto3**, que faz envio de dados para um bucket no serviço **_Simple Storage Service (S3)_** da **_AWS_**.
 
 ## Instalação
 
@@ -28,7 +33,7 @@ Para clonar este repositório, use o seguinte comando no terminal:
 git clone https://github.com/V-OOH/agent-v-ooh
 ```
 
-Para instalar as dependências usadas neste projeto, use o seguinte comando em seu terminal, na **raíz do projeto**:
+Para instalar as dependências usadas neste projeto, use o seguinte comando em seu terminal, na **raiz do projeto**:
 
 ```
 pip install -r requeriments.txt
@@ -42,21 +47,22 @@ para evitar quebrar o seu sistema.
 Utilize o seguinte comando para criar um ambiente virtual:
 
 ```
-python3 -m venv ~/vooh-venv
+cd agent-vooh/
+python3 -m venv .venv
 ```
 
 Para ativar o ambiente virtual, basta executar:
 
 ```
-source ~/vooh-venv/bin/activate
+source .venv/bin/activate
 ```
 
 **Observações:**
 
-Caso esteja usando um **shell** que não seja o **bash**, como, por exemplo, o **fish**, use o comando:
+Caso esteja usando um **shell** que não seja o **bash**, como, por exemplo, o **fish**, use o comando abaixo ou o respectivo de seu shell:
 
 ```
-source ~/vooh-venv/bin/activate.fish
+source .venv/bin/activate.fish
 ```
 
 ## Execução
@@ -71,4 +77,4 @@ python3 main.py [frequência]
 
 `frequência` é o tempo em segundos entre capturas
 
-As informações coletadas ficam em `/data`, onde há arquivos .CSV separados para cada componente
+As informações coletadas ficam em `data/`, onde há arquivos .CSV de dados do sistema e processos.

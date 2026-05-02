@@ -6,6 +6,7 @@ from src.monitor.hardware.disco import info_disco
 from src.monitor.hardware.processador import info_processador
 from src.monitor.hardware.ram import info_ram
 from src.monitor.hardware.rede import info_rede
+from src.monitor.software.boot import boot_time
 from src.util.salvar import salvar
 from src.monitor.software.processos import capturar_processos
 from src.s3.upload import upload_file
@@ -141,6 +142,21 @@ def captura(frequencia: int, plataforma: str):
         # IP
         ip = n['ip']
 
+        # Tempo de boot
+        boot = boot_time()['boot_time']
+
+        # Dias
+        dias = boot.days
+
+        # Horas
+        horas = boot.seconds // 3600
+
+        # Minutos
+        minutos = (boot.seconds % 3600) // 60
+
+        # Tempo total
+        tempo = f"{dias}, {horas}, {minutos}"
+
         # Cabeçalhos (Campos)
         cabecalho = [
             "data_hora",
@@ -161,7 +177,8 @@ def captura(frequencia: int, plataforma: str):
             "upload",
             "download",
             "mac",
-            "ip"
+            "ip",
+            "boot_time"
         ]
 
         # Dicionários de dados da leitura
@@ -184,7 +201,8 @@ def captura(frequencia: int, plataforma: str):
             "upload": upload,
             "download": download,
             "mac": mac,
-            "ip": ip
+            "ip": ip,
+            "boot_time": tempo
         }
 
         # Captura os processos

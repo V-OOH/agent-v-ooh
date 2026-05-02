@@ -1,3 +1,4 @@
+import gc
 import os
 import time, psutil, sys, colorama
 from dotenv import load_dotenv
@@ -247,6 +248,10 @@ def captura(frequencia: int, plataforma: str):
         # Emite a mensagem de salvamento
         print(f"[{time.strftime('%d-%m-%Y %H-%M-%S')}] - Dados registrados")
 
+        # Limpa os dicionários
+        dados = {}
+        proc = {}
+
         # Conta um ciclo
         contagem+=1
 
@@ -263,6 +268,9 @@ def captura(frequencia: int, plataforma: str):
 
             # Reseta a contagem
             contagem = 0
+
+            # Chama o GC
+            gc.collect()
 
         # Intervalo de captura e salvamento de dados
         time.sleep(frequencia)

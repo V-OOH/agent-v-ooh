@@ -34,6 +34,9 @@ def salvar(arquivo, campos, dados) -> bool:
 
             # Grava os dados no arquivo passado
             escritor.writerow(dados)
+
+            # Fecha o documento
+            arq.close()
         return True
 
     # Retorna uma mensagem de erro caso encontre algum erro

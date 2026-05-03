@@ -3,6 +3,8 @@ import os
 import time, psutil, sys, colorama
 from dotenv import load_dotenv
 from colorama import Fore, Style
+
+from src.monitor.hardware.temperatura import info_temperatura
 from src.monitor.hardware.disco import info_disco
 from src.monitor.hardware.processador import info_processador
 from src.monitor.hardware.ram import info_ram
@@ -158,6 +160,18 @@ def captura(frequencia: int, plataforma: str):
         # Tempo total
         tempo = f"{dias}, {horas}, {minutos}"
 
+        # Temperatura do processador
+        temperaturas = info_temperatura()
+
+        # Temperatura atual
+        temp_atual = temperaturas['atual']
+
+        # Temperatura alta
+        temp_alta = temperaturas['alta']
+
+        # Temperatura crítica
+        temp_critica = temperaturas['critica']
+
         # Cabeçalhos (Campos)
         cabecalho = [
             "data_hora",
@@ -179,7 +193,10 @@ def captura(frequencia: int, plataforma: str):
             "download",
             "mac",
             "ip",
-            "boot_time"
+            "boot_time",
+            "temperatura_atual",
+            "temperatura_alta",
+            "temperatura_critica"
         ]
 
         # Dicionários de dados da leitura
@@ -203,7 +220,10 @@ def captura(frequencia: int, plataforma: str):
             "download": download,
             "mac": mac,
             "ip": ip,
-            "boot_time": tempo
+            "boot_time": tempo,
+            "temperatura_atual": temp_atual,
+            "temperatura_alta": temp_alta,
+            "temperatura_critica": temp_critica
         }
 
         # Captura os processos

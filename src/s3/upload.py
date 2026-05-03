@@ -38,12 +38,12 @@ def upload_file(arquivo, bucket, nome_objeto=None):
         response = s3_client.upload_file(arquivo, bucket, nome_objeto)
 
         if response:
-            print(Fore.GREEN + f"[{time.strftime('%d-%m-%Y %H-%M-%S')}] - Sucesso: Arquivo {arquivo} enviado!")
+            print(Fore.GREEN + f"[{time.strftime('%d-%m-%Y %H:%M:%S')}] - Sucesso: Arquivo {arquivo} enviado!")
 
     except Exception as erro:
         print(Fore.RED + f"Ocorreu um erro: {erro}" + Style.RESET_ALL)
         print(Fore.YELLOW + "Os dados foram salvos apenas localmente!" + Style.RESET_ALL)
         return False
 
-    print(f"[{time.strftime('%d-%m-%Y %H-%M-%S')}] - " + Fore.GREEN + f"{arquivo.split('data/')[1]} enviado para S3" + Style.RESET_ALL)
+    print(f"[{time.strftime('%d-%m-%Y %H:%M:%S')}] - " + Fore.GREEN + f"{arquivo.split('data/')[1]} enviado para S3" + Style.RESET_ALL)
     return True

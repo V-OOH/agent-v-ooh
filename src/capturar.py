@@ -266,7 +266,7 @@ def captura(frequencia: int, plataforma: str):
         salvar(arquivo=dados_file, campos=cabecalho, dados=dados)
 
         # Emite a mensagem de salvamento
-        print(f"[{time.strftime('%d-%m-%Y %H-%M-%S')}] - Dados registrados")
+        print(f"[{time.strftime('%d-%m-%Y %H:%M:%S')}] - Dados registrados")
 
         # Limpa os dicionários
         dados = {}
